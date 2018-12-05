@@ -37,7 +37,11 @@ foreach ($inputData as $dateTime => $event) {
 			}
 
 			for ($i = (int) $dateTimeFrom->format('i'); $i <= (int) $dateTimeTo->format('i'); ++$i) {
-				++$minutesAsleepMap[$guardId][$i]; //TODO remove undefined notices
+				if (!isset($minutesAsleepMap[$guardId][$i])) {
+					$minutesAsleepMap[$guardId][$i] = 1;
+				} else {
+					++$minutesAsleepMap[$guardId][$i];
+				}
 			}
 
 			break;
