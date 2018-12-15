@@ -16,11 +16,9 @@ function getMetadata(&$input)
 		$sum += getMetadata($input);
 	}
 
-	if ($numberOfMetadata > 0) {
-		for ($i = 1; $i <= $numberOfMetadata; ++$i) {
-			$metadata = array_shift($input);
-			$sum += $metadata;
-		}
+	for ($i = 1; $i <= $numberOfMetadata; ++$i) {
+		$metadata = array_shift($input);
+		$sum += $metadata;
 	}
 
 	return $sum;
